@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact EzzGrow</title>
+    <link rel="stylesheet" href="contact-us-main.css" />
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+                <div class="address details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Address</div>
+                    <div class="text-one">Jalandhar, 144001</div>
+                    <div class="text-two">Punjab, India</div>
+                </div>
+                <div class="phone details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Phone</div>
+                    <div class="text-one">+91 91428 83832</div>
+                </div>
+                <div class="email details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div>
+                    <div class="text-one">contact.ezzgrow@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="topic-text">Contact Us</div>
+                <p>Reach us out and boost yourself into the digital platform today!</p>
+
+
+                <form name="submit-to-google-sheet">
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter your name" name="Name" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" placeholder="Enter your email" name="Email" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter your whatsapp number" name="Whatsapp" required>
+                    </div>
+                    <div class="input-box">
+                        <label for="services">Choose Required Service</label>
+                        <select id="services" name="Required Service">
+                            <option value="chat-gpt-tools">GPT tools</option>
+                        </select>
+                    </div> <br>
+                    <div class="input-box message-box">
+                        <textarea name="Message"
+                            placeholder="Enter the description of your required service"></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="submit" onclick="delayedRedirect()">Submit</button>
+                    </div>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="foot">Go to <a style="text-decoration: none; color: orangered;" href="index.html"> EzzGrow </a></div>
+
+    <script>
+        // From to Google Spreadsheet
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyOpuiRgt3_BHrtNX1IzYEqwCkIwWE3UbAPN7q5rF36AOqs_eEDSMMGeRfGMu-kOrVQCQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Response received! We will retrieve back soon!"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+
+        function delayedRedirect() {
+            // Specify the URL of the page you want to redirect to
+            var redirectTo = "gpt-tools.html"; // Replace with your desired URL
+
+            // Use setTimeout to wait for 7 seconds before redirecting
+            setTimeout(function () {
+                // Use window.location to redirect to the specified page
+                window.location.href = redirectTo;
+            }, 7500); // 7500 milliseconds = 7.5 seconds
+        }
+
+    </script>
+</body>
+
+</html>

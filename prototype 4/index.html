@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== REMIXICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/56ab8b491b.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="style.css" />
+    <title>EzzGrow - Grow with us.</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <!-- Calendly badge widget begin -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        // Function to validate email
+        function validateEmail(email) {
+          var re = /\S+@\S+\.\S+/;
+          return re.test(email);
+        }
+
+        // Initialize the Calendly widget
+        Calendly.initBadgeWidget({
+          url: "https://calendly.com/contact-ezzgrow/1to1meeting",
+          text: "Book a free meeting",
+          color: "orangered",
+          textColor: "#ffffff",
+          branding: undefined,
+          onClick: function () {
+            var email = prompt("Please enter your email address:");
+            if (email === null) {
+              return; // User clicked cancel
+            } else if (!validateEmail(email)) {
+              alert("Please enter a valid email address.");
+              return; // Email is invalid
+            } else {
+              // Email is valid, proceed with Calendly scheduling
+              Calendly.showPopupWidget(
+                "https://calendly.com/contact-ezzgrow/1to1meeting"
+              );
+            }
+          },
+        });
+
+        // Create an Intersection Observer
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                // Target section is in view, hide the widget
+                document.querySelector(".calendly-badge-widget").style.display =
+                  "none";
+              } else {
+                // Target section is not in view, show the widget
+                document.querySelector(".calendly-badge-widget").style.display =
+                  "block";
+              }
+            });
+          },
+          { threshold: 0.5 }
+        ); // Adjust the threshold as needed
+
+        // Specify the target section and start observing
+        var targetSection = document.getElementById("footer-hide"); // Replace 'yourSectionId' with the actual ID of your section
+        if (targetSection) {
+          observer.observe(targetSection);
+        }
+      };
+    </script>
+
+    <!-- Calendly badge widget end -->
+    <style>
+      .dropdown__link a {
+        color: #000;
+      }
+
+      .col a {
+        text-decoration: none;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="headerx">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="index.html" class="nav__logo">
+            <img class="logo" src="images/pnglogo.png" alt="logo" />
+            <span class="left-heading">EzzGrow </span>
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav__burger"></i>
+            <i class="ri-close-line nav__close"></i>
+          </div>
+        </div>
+
+        <!--=============== NAV MENU ===============-->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <!--=============== DROPDOWN 1 ===============-->
+            <li class="dropdown__item">
+              <div class="nav__link">
+                What we offer?
+                <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+
+              <ul class="dropdown__menu">
+                <!--=============== DROPDOWN SUBMENU ===============-->
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-html5-fill"></i>
+                    <a href="web-development.html" target="_blank">
+                      Web Development
+                    </a>
+                    <i class="ri-add-line dropdown__add"></i>
+                  </div>
+
+                  <ul class="dropdown__submenu">
+                    <li>
+                      <a
+                        href="web-development.html#frontend"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-css3-fill"></i> Front-end Development
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="web-development.html#backend"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-npmjs-line"></i> Back-end Development
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="web-development.html#database"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-database-2-fill"></i> Database Management
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-bar-chart-line"></i>
+                    <a href="data-analytics.html" target="_blank">
+                      Data Analytics
+                    </a>
+                    <i class="ri-add-line dropdown__add"></i>
+                  </div>
+
+                  <ul class="dropdown__submenu">
+                    <li>
+                      <a
+                        href="data-analytics.html#big-data"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-line-chart-fill"></i> Big Data Analytics
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="data-analytics.html#web-analytics"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-pages-fill"></i> Web Analytics
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="data-analytics.html#spatial-analysis"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-global-line"></i> Spatial Analytics
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-heart-2-line"></i>
+                    <a href="social-media.html" target="_blank">
+                      Social Media
+                    </a>
+                    <i class="ri-add-line dropdown__add"></i>
+                  </div>
+
+                  <ul class="dropdown__submenu">
+                    <li>
+                      <a
+                        href="social-media.html#analytics"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-pie-chart-2-fill"></i> Analytics
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-search-line"></i>
+                    <a href="seo.html" target="_blank"> SEO </a>
+                    <i class="ri-add-line dropdown__add"></i>
+                  </div>
+
+                  <ul class="dropdown__submenu">
+                    <li>
+                      <a
+                        href="seo.html#mobile"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-smartphone-line"></i> Mobile Responsiveness
+                      </a>
+                    </li>
+
+                    <li>
+                      <a
+                        href="seo.html#content"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-organization-chart"></i> Content
+                        Organization
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-mail-send-line"></i>
+                    <a href="email-mkt.html" target="_blank"
+                      >Email - Marketing
+                    </a>
+                  </div>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-megaphone-fill"></i>
+                    <a href="product-brand.html" target="_blank">
+                      Product Branding </a
+                    ><i class="ri-add-line dropdown__add"></i>
+                  </div>
+
+                  <ul class="dropdown__submenu">
+                    <li>
+                      <a
+                        href="product-brand.html#brand-story"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-slideshow-3-fill"></i> Brand Story
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="product-brand.html#brand-activation"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-chat-history-fill"></i>Brand Activation
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-customer-service-2-fill"></i>
+                    <a href="startup.html" target="_blank">
+                      Start-up Consultancy
+                    </a>
+                    <i class="ri-add-line dropdown__add"></i>
+                  </div>
+
+                  <ul class="dropdown__submenu">
+                    <li>
+                      <a
+                        href="https://calendly.com/contact-ezzgrow/1to1meeting"
+                        target="_blank"
+                        class="dropdown__sublink"
+                      >
+                        <i class="ri-phone-fill"></i> 121 free call
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="dropdown__subitem">
+                  <div class="dropdown__link">
+                    <i class="ri-robot-fill"></i>
+                    <a href="gpt-tools.html" target="_blank">GPT Tools </a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="blogs.html" target="_blank" class="nav__link">Blogs</a>
+            </li>
+            <li>
+              <a href="contact-us-main.html" target="_blank" class="nav__link"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="freelancer.html" target="_blank" class="nav__link"
+                >Are you a Freelancer?</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="hero-section">
+      <div class="container">
+        <div class="header">
+          <h1>
+            Wake up to new business <br />
+            growth opportunities
+          </h1>
+          <span id="element"></span>
+          <a class="custom-btn btn" href="#growth-formula"
+            >Explore More <i class="fa-solid fa-arrow-down"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div id="growth-formula">
+      <div class="container-services">
+        <h1>How we help you?</h1>
+        <p>A customer-centric approach is the key.</p>
+        <div class="box-container">
+          <div class="box">
+            <span class="icon-services"><i class="ri-wifi-fill"></i></span>
+            <h3>Acquire New Customers</h3>
+            <p>
+              We identify your Unique Selling Points and conduct market research
+              accordingly to attract new audience.
+            </p>
+          </div>
+
+          <div class="box">
+            <span class="icon-services"
+              ><i class="fa-solid fa-hand-holding-heart"></i
+            ></span>
+            <h3>Evaluate Existing Customers</h3>
+            <p>
+              We help you to analyze data from current customers to identify
+              common characteristics and preferences.
+            </p>
+          </div>
+
+          <div class="box">
+            <span class="icon-services"
+              ><i class="ri-lightbulb-flash-fill"></i
+            ></span>
+            <h3>Create Exciting Content</h3>
+            <p>
+              We help you curate content for your website and social media
+              platforms which will attract both the existing and new customers.
+            </p>
+          </div>
+
+          <div class="box">
+            <span class="icon-services"
+              ><i class="fa-solid fa-square-poll-vertical"></i
+            ></span>
+            <h3>Analysis of the outcomes</h3>
+            <p>
+              We don't limit ourselves, neither you to grow. With our service,
+              we help you to analyze the results and amend required changes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="our-services">
+      <div class="container-services-new">
+        <h1>Unleash your true potential</h1>
+        <div class="row-services-new">
+          <a href="web-development.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-laptop-code"></i>
+              <h2>Expert Web Development</h2>
+              <p>
+                Unleash the full potential of your online presence with our
+                expert web development. From sleek design to seamless
+                functionality, we build websites that don't just exist but
+                thrive in the digital landscape.
+              </p>
+            </div>
+          </a>
+          <a href="data-analytics.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-chart-simple"></i>
+              <h2>Robust Data Analysis</h2>
+              <p>
+                Navigate the sea of data with confidence through our robust
+                analytics. We transform raw information into actionable
+                insights, guiding your strategic decisions. In the world of
+                business, information is power.
+              </p>
+            </div>
+          </a>
+          <a href="social-media.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-heart"></i>
+              <h2>Engaging Content Creation</h2>
+              <p>
+                Get high quality content that resonates with your audience. Our
+                services includes social media management. We will create
+                customized content that is tailored to your business needs and
+                goals.
+              </p>
+            </div>
+          </a>
+          <a href="seo.html" target="_blank">
+            <div class="service">
+              <i class="fa-brands fa-searchengin"></i>
+              <h2>Effective SEO Strategies</h2>
+              <p>
+                Climb the digital ranks with our SEO expertise. We optimize your
+                online presence to not only be seen but to dominate search
+                engine results. Visibility is the key, and we ensure that
+                business.
+              </p>
+            </div>
+          </a>
+          <a href="email-mkt.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-chart-line"></i>
+              <h2>Email Marketing</h2>
+              <p>
+                Inboxes that inspire action. Reach a wider audience and increase
+                your customer base with our email marketing services. We craft
+                campaigns that not only land in inboxes but also resonate with
+                your audience, driving conversions.
+              </p>
+            </div>
+          </a>
+          <a href="product-brand.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-palette"></i>
+              <h2>Product Branding</h2>
+              <p>
+                Craft a brand that tells a story, resonates with your audience,
+                and leaves a lasting impression. We create an identity that
+                speaks to the heart of your business' mission. We will help you
+                build a brand that becomes synonymous with excellence.
+              </p>
+            </div>
+          </a>
+          <a href="startup.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-comments"></i>
+              <h2>Start-up Consultancy</h2>
+              <p>
+                Embark on your journey to success with our startup consultancy.
+                Our experienced team of advisors provides strategic guidance for
+                your unique needs. Whether you're navigating challenges or
+                exploring new opportunities we are here for your growth.
+              </p>
+            </div>
+          </a>
+          <a href="gpt-tools.html" target="_blank">
+            <div class="service">
+              <i class="fa-solid fa-robot"></i>
+              <h2>GPT Tools</h2>
+              <p>
+                Experience the future of automation with our GPT tools
+                integration. From content creation to customer interactions, we
+                harness the power of artificial intelligence to streamline
+                processes and enhance efficiency.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="services-deep">
+      <div class="heading">
+        <h1>Explore our Offerings</h1>
+      </div>
+      <section class="about">
+        <div class="content">
+          <img src="images/web-dev.jpg" alt="web-dev" />
+          <div class="text">
+            <h1>Development</h1>
+            <h5>EzzGrow's Web Applications - Launch Yourself Online</h5>
+            <p>
+              Catapult your business into the digital spotlight with our web
+              development service - stay one step ahead, stay online!
+            </p>
+            <a href="web-development.html" target="_blank"
+              >View More <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="about pc">
+        <div class="content">
+          <div class="text">
+            <h1>Data Analytics</h1>
+            <h5>EzzGrow's Data Analytics - Fuelling Business Success</h5>
+            <p>
+              Leverage robust, data-driven solutions for actionable insights
+              that enable informed decision-making, strategic planning, and
+              sustainable growth for your business.
+            </p>
+            <a href="data-analytics.html" target="_blank"
+              >View More <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+          <img src="images/data-science.jpg" alt="data-science" />
+        </div>
+      </section>
+      <section class="about mob">
+        <div class="content">
+          <img src="images/data-science.jpg" alt="data-science" />
+          <div class="text">
+            <h1>Data Analytics</h1>
+            <h5>EzzGrow's Data Analytics - Fuelling Business Success</h5>
+            <p>
+              Leverage robust, data-driven solutions for actionable insights
+              that enable informed decision-making, strategic planning, and
+              sustainable growth for your business.
+            </p>
+            <a href="data-analytics.html" target="_blank"
+              >View More <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="about">
+        <div class="content">
+          <img src="images/seo.jpg" alt="seo" />
+          <div class="text">
+            <h1>Search Engine Optimization</h1>
+            <h5>EzzGrow's SEO - Maximizing Your Online Visibility</h5>
+            <p>
+              With our proven SEO strategies, we optimize your online presence,
+              improving search rankings and driving more organic traffic to your
+              business.
+            </p>
+            <a href="seo.html" target="_blank"
+              >View More <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="about pc">
+        <div class="content">
+          <div class="text">
+            <h1>Social Media Analytics</h1>
+            <h5>
+              Transforming Business with interactive Social Media Analytical
+              tools
+            </h5>
+            <p>
+              EzzGrow's tailored social media stategies maximize your brand's
+              online reach, fostering customer engagement and enhancing your
+              social market footprint.
+            </p>
+            <a href="social-media.html" target="_blank"
+              >View More <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+          <img src="images/social-media.jpg" alt="web-dev" />
+        </div>
+      </section>
+      <section class="about mob">
+        <div class="content">
+          <img src="images/social-media.jpg" alt="web-dev" />
+          <div class="text">
+            <h1>Social Media Analytics</h1>
+            <h5>
+              Transforming Business with interactive Social Media Analytical
+              tools
+            </h5>
+            <p>
+              EzzGrow's tailored social media stategies maximize your brand's
+              online reach, fostering customer engagement and enhancing your
+              social market footprint.
+            </p>
+            <a href="social-media.html" target="_blank"
+              >View More <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer id="footer-hide">
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>EzzGrow</h4>
+            <ul>
+              <li>
+                <a href="#hero-section"
+                  >Go to top <i class="fa-solid fa-arrow-up"></i
+                ></a>
+              </li>
+              <li><a href="#growth-formula">Explore Now</a></li>
+              <li><a href="">Are you a Freelancer?</a></li>
+              <li>
+                <a href="contact-us-main.html" target="_blank">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 2nd Column -->
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li>
+                <a href="web-development.html" target="_blank">Development </a>
+                / <a href="gpt-tools.html" target="_blank"> AI </a>
+              </li>
+              <li>
+                <a href="data-analytics.html" target="_blank">Data Analytics</a>
+              </li>
+              <li>
+                <a href="seo.html" target="_blank"> SEO </a> /
+                <a href="email-mkt.html" target="_blank"> Email - Marketing </a>
+              </li>
+              <li>
+                <a
+                  href="https://calendly.com/contact-ezzgrow/1to1meeting"
+                  target="_blank"
+                  >Consultancy</a
+                >
+                / <a href="social-media.html" target="_blank"> Social Media </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 3th Column -->
+
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <form name="submit-to-google-sheet">
+              <input
+                type="text"
+                name="Name"
+                placeholder="Your Name"
+                class="inputName"
+              />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                class="inputEmail"
+              />
+              <input type="submit" value="Subscribe" class="inputSubmit" />
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+        <hr />
+        <div class="row-footer">
+          <div class="col">
+            <p>
+              &#169; 2024 <a href="index.html"> EzzGrow.</a> All Rights
+              Reserved.
+            </p>
+          </div>
+          <div class="socialIcons">
+            <a href="https://www.facebook.com/EzzGrow/" target="_blank"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com/ezzgrow/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="https://twitter.com/EzzGrow" target="_blank"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a href="https://www.linkedin.com/company/ezzgrow/" target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="mailto:contact.ezzgrow@gmail.com" target="_blank"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--=============== MAIN JS ===============-->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      // TypeJS Script
+      var typed = new Typed("#element", {
+        strings: ["Grow with us", "Choose EzzGrow"],
+        typeSpeed: 30,
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 80,
+        backDelay: 1000,
+      });
+      const showMenu = (toggleId, navId) => {
+        const toggle = document.getElementById(toggleId),
+          nav = document.getElementById(navId);
+
+        toggle.addEventListener("click", () => {
+          // Add show-menu class to nav menu
+          nav.classList.toggle("show-menu");
+
+          // Add show-icon to show and hide the menu icon
+          toggle.classList.toggle("show-icon");
+        });
+      };
+
+      showMenu("nav-toggle", "nav-menu");
+
+      // Preloader
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function () {
+        loader.style.display = "none";
+      });
+
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzPw_BufCLHSzi-2IN1ozLwKX2NJx27E4PV8wA6L2kcy8FeeGb5uAt2yO29YkO88V9Azw/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) }).then(
+          (response) => {
+            msg.innerHTML = "Thanks for subscribing";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+          }
+        );
+        form.reset().catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
